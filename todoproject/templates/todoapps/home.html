@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+	<head>
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+		<style>
+
+			*{
+				margin:0; padding:0; box-sizing:border-box; 
+			}
+			html{
+				font-family: 'Open Sans', sans-serif;
+			}
+			h1{
+				text-transform:capitalize; 
+			}
+			.newTaskWrapper{
+				width:70px;
+				height:70px;
+				background:blue;
+				line-height:70px;
+				text-align:center;
+				color:#fff;
+				font-size:3em;    
+				border-radius:9999px;
+				position:fixed;
+				bottom:25px;
+				left:38%;    
+			}
+			.newTaskWrapper:hover,
+			.taskContainer > form > input:last-child{
+				cursor:pointer; 
+			}
+			.taskContainer{
+				width:90%;
+				height:350px;
+				margin:10px auto; 
+				background:orangered;
+				display:none;   
+			}
+			.taskContainer > h3{
+				margin-bottom:8px; 
+			}
+			.taskContainer > form{
+				text-align:center; 
+			}
+			.taskContainer > form > input{
+				border:0px;
+				width:90%; 
+				height:40px;  
+				margin-bottom:12px; 
+			}
+			.taskContainer > form > textarea{
+				width:90%;
+				height:100px;
+				border:0px;
+				margin-bottom:12px; 
+			}
+			#appMainWrapper{
+				width:100%;
+				height:550px;
+				position:relative;  
+			}
+			#appWrapper{
+				width:20%;
+				height:500px;
+				border:1px solid green;
+				border-radius:10px;  
+				position:absolute;
+				top:50%;
+				left:50%;
+				-o-transform:translate(-50%,-50%);
+				-moz-transform:translate(-50%,-50%);
+				-webkit-transform:translate(-50%,-50%);  
+				transform:translate(-50%,-50%);
+			}
+		</style>	
+	</head>
+	<body>
+		<h1>todo app</h1>
+
+		<div id="appMainWrapper">
+			<div id="appWrapper">
+				<div class="taskContainer">
+					<h3>Task : </h3>
+					<form method="POST" action="">
+						<input type="text" name="work" placeholder="What to do :">
+						<textarea cols='10' row='10' name="describe" placeholder="optional text about work ?"></textarea>
+						<label for="categories">Add To List</label>
+						<select id="categories">
+						  <option value="Default">Default</option>
+						  <option value="Family">Family</option>
+						  <option value="Personal">Personal</option>
+						  <option value="Office">Office</option>
+						</select>
+						<input type="submit" value="save" style="margin-top:12px;">
+					</form>	
+				</div>
+				<div class="newTaskWrapper">+</div>
+			</div>
+		</div>
+
+
+		<script>
+			
+			var x = document.getElementsByClassName('newTaskWrapper')[0];
+			var y = document.getElementsByClassName('taskContainer')[0];
+			var z = document.getElementsByClassName('newTaskWrapper')[0];
+			var menuOn = false;
+
+			x.addEventListener('click',function(){
+
+				if(menuOn){
+					y.style.display = 'none';
+			 		z.innerHTML = '+';
+			 		menuOn = false;
+				}else{
+					y.style.display = 'block';
+			 		z.innerHTML = 'x';
+			 		menuOn = true;
+				}
+			 	
+
+			});
+		</script>
+	</body>
+</html>
