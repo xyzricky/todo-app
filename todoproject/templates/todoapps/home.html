@@ -83,15 +83,17 @@
 				<div class="taskContainer">
 					<h3>Task : </h3>
 					<form method="POST" action="">
+						{% csrf_token %}
 						<input type="text" name="work" placeholder="What to do :">
 						<textarea cols='10' row='10' name="describe" placeholder="optional text about work ?"></textarea>
 						<label for="categories">Add To List</label>
-						<select id="categories">
+						<!-- <select id="categories">
 						  <option value="Default">Default</option>
 						  <option value="Family">Family</option>
 						  <option value="Personal">Personal</option>
 						  <option value="Office">Office</option>
-						</select>
+						</select> -->
+						{{ form.dd_choice }}
 						<input type="submit" value="save" style="margin-top:12px;">
 					</form>	
 				</div>
